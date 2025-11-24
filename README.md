@@ -54,7 +54,6 @@ Engineering-Calculator-WPF/
 
 ### Build & Run | Сборка и запуск
 
-```bash
 # Clone repository | Клонируй репозиторий
 git clone https://github.com/Lordi-back/Engineering-Calculator-WPF.git
 
