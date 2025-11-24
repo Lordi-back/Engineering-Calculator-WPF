@@ -1,0 +1,99 @@
+﻿<Page x:Class="Engineering_Calculator_WPF.EngineeringCalculator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Инженерный калькулятор">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="Инженерный калькулятор" FontSize="24" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="10" Foreground="DarkBlue"/>
+
+        <!-- Дисплей -->
+        <TextBox x:Name="Display" Grid.Row="1" Height="70" FontSize="28" 
+                TextAlignment="Right" VerticalContentAlignment="Center" 
+                Margin="10" IsReadOnly="True" Text="0" Background="White"
+                BorderBrush="Gray" BorderThickness="2"/>
+
+        <!-- Кнопки калькулятора -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <UniformGrid Columns="6" Rows="8" Margin="10">
+
+                <!-- Ряд 1 - Очистка и базовые операции -->
+                <Button Content="C" Click="Clear_Click" Background="LightCoral" FontWeight="Bold"/>
+                <Button Content="⌫" Click="Backspace_Click" Background="LightSalmon"/>
+                <Button Content="(" Click="Parenthesis_Click"/>
+                <Button Content=")" Click="Parenthesis_Click"/>
+                <Button Content="x²" Click="Power2_Click" Background="LightYellow"/>
+                <Button Content="√" Click="Sqrt_Click" Background="LightYellow"/>
+
+                <!-- Ряд 2 - Тригонометрия -->
+                <Button Content="sin" Click="Sin_Click" Background="LightGreen"/>
+                <Button Content="cos" Click="Cos_Click" Background="LightGreen"/>
+                <Button Content="tan" Click="Tan_Click" Background="LightGreen"/>
+                <Button Content="π" Click="Pi_Click" Background="LightBlue"/>
+                <Button Content="e" Click="E_Click" Background="LightBlue"/>
+                <Button Content="n!" Click="Factorial_Click" Background="LightYellow"/>
+
+                <!-- Ряд 3 - Обратная тригонометрия -->
+                <Button Content="asin" Click="Asin_Click" Background="LightGreen"/>
+                <Button Content="acos" Click="Acos_Click" Background="LightGreen"/>
+                <Button Content="atan" Click="Atan_Click" Background="LightGreen"/>
+                <Button Content="xʸ" Click="Power_Click" Background="LightYellow"/>
+                <Button Content="10ˣ" Click="Power10_Click" Background="LightYellow"/>
+                <Button Content="1/x" Click="Reciprocal_Click" Background="LightYellow"/>
+
+                <!-- Ряд 4 - Логарифмы -->
+                <Button Content="log" Click="Log10_Click" Background="LightBlue"/>
+                <Button Content="ln" Click="Ln_Click" Background="LightBlue"/>
+                <Button Content="eˣ" Click="Exp_Click" Background="LightBlue"/>
+                <Button Content="2ˣ" Click="Power2x_Click" Background="LightYellow"/>
+                <Button Content="|x|" Click="Abs_Click" Background="LightYellow"/>
+                <Button Content="±" Click="PlusMinus_Click"/>
+
+                <!-- Ряд 5 - Цифры 7-9 и операции -->
+                <Button Content="7" Click="Number_Click" FontSize="16"/>
+                <Button Content="8" Click="Number_Click" FontSize="16"/>
+                <Button Content="9" Click="Number_Click" FontSize="16"/>
+                <Button Content="/" Click="Operator_Click" Background="LightBlue" FontWeight="Bold"/>
+                <Button Content="mod" Click="Mod_Click" Background="LightYellow"/>
+                <Button Content="⌊x⌋" Click="Floor_Click" Background="LightYellow"/>
+
+                <!-- Ряд 6 - Цифры 4-6 и операции -->
+                <Button Content="4" Click="Number_Click" FontSize="16"/>
+                <Button Content="5" Click="Number_Click" FontSize="16"/>
+                <Button Content="6" Click="Number_Click" FontSize="16"/>
+                <Button Content="×" Click="Operator_Click" Background="LightBlue" FontWeight="Bold"/>
+                <Button Content="°→rad" Click="DegToRad_Click" Background="LightYellow"/>
+                <Button Content="rad→°" Click="RadToDeg_Click" Background="LightYellow"/>
+
+                <!-- Ряд 7 - Цифры 1-3 и операции -->
+                <Button Content="1" Click="Number_Click" FontSize="16"/>
+                <Button Content="2" Click="Number_Click" FontSize="16"/>
+                <Button Content="3" Click="Number_Click" FontSize="16"/>
+                <Button Content="-" Click="Operator_Click" Background="LightBlue" FontWeight="Bold"/>
+                <Button Content="⌈x⌉" Click="Ceiling_Click" Background="LightYellow"/>
+                <Button Content="rand" Click="Random_Click" Background="LightBlue"/>
+
+                <!-- Ряд 8 - Цифра 0, точка и равно -->
+                <Button Content="0" Click="Number_Click" FontSize="16" Grid.ColumnSpan="2"/>
+                <Button Content="." Click="Decimal_Click" FontSize="16"/>
+                <Button Content="+" Click="Operator_Click" Background="LightBlue" FontWeight="Bold"/>
+                <Button Content="=" Click="Equals_Click" Background="LightGreen" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            </UniformGrid>
+        </ScrollViewer>
+
+        <!-- Кнопки навигации -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="← Назад к обычному калькулятору" 
+                    Click="BackToCalculator_Click"
+                    Width="220" Height="35" Margin="5" Background="LightGreen" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Page>
